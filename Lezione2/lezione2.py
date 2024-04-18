@@ -17,4 +17,3 @@ print(message)
 #and title case.
 
 name: str =("Luca")
-print(f"{name.lower()}\n{name.upper()}\n{name.title()}\n")
