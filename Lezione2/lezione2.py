@@ -17,3 +17,6 @@ print(message)
 #and title case.
 
 name: str =("Luca")
+print (name.lower())
+print (name.upper())
+print (name.title())
