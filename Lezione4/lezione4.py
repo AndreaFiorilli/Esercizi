@@ -103,10 +103,9 @@ print(build_profiler("name","lastname",34,70))
 # Print the dictionary that’s returned to make sure all the information was stored correctly. 
 
 
-def make_car(manufacturer: str, model: str, color: str = None, parking_sensor: bool = False) -> dict:
+def make_car(manufacturer: str, model: str, color: str = None) -> dict:
     car = {"manufacturer" : manufacturer,
            "model" : model,
-           "color" : color,
-           "parking_sensor" : parking_sensor}
+           "color" : color,}
     return car
 print(make_car("manuf","model","color"))
