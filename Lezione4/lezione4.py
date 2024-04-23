@@ -91,10 +91,10 @@ sandwich("Ham")
 #All the values must be passed to the function as parameters. The function then must return a string such as "Eric Crow, age 45, hair brown, weight 67"
 #
 
-def build_profiler(first_name: str, last_name: str, age: int, weight: int, height: int) -> str:
-    message: str = f"{first_name} {last_name}, age:{age}, weight: {weight}, height:{height}"
+def build_profiler(first_name: str, last_name: str, age: int, weight: int) -> str:
+    message: str = f"{first_name} {last_name}, age:{age}, weight: {weight}"
     return message
-print(build_profiler("name","lastname",34,70,178))
+print(build_profiler("name","lastname",34,70))
 
 #8-14. Cars: Write a function that stores information about a car in a dictionary. The function should always receive a manufacturer and a model name. 
 #It should then accept an arbitrary number of keyword arguments. 
