@@ -109,3 +109,48 @@ def make_car(manufacturer: str, model: str, color: str) -> dict:
            "color" : color,}
     return car
 print(make_car("manuf","model","color"))
+
+# Questa funzione implementa il bubble sort
+import time
+mylist:list=[i for i in range(10000,1,-1)]
+def naive_bubble_sort(a:list=[2,5,1,4,8,3,7,6]):
+    for i in range(len(a)):
+        for j in range(len(a)-1):
+            if a[j]>a[j+1]:
+                temp:int=a[j]
+                a[j]=a[j+1]
+                a[j+1]=temp
+    return a
+start:float=time.time()
+print(naive_bubble_sort(mylist))
+print(time.time()-start)
+
+mylist:list=[i for i in range(10000,1,-1)]
+def improved_bubble_sort(a:list=[2,5,1,4,8,3,7,6]):
+    for i in range(len(a)):
+        for j in range(len(a)-i-1):
+            if a[j]>a[j+1]:
+                temp:int=a[j]
+                a[j]=a[j+1]
+                a[j+1]=temp
+    return a
+start:float=time.time()
+print(improved_bubble_sort(mylist))
+print(time.time()-start)
+
+def flag_bubble_sort(a:list=[1,2,3,4,5,6,7,8]):
+    for i in range(len(a)):
+        swap_flag=False
+        for j in range(len(a)-i-1):
+            if a[j]>a[j+1]:
+                swap_flag=True
+                temp:int=a[j]
+                a[j]=a[j+1]
+                a[j+1]=temp
+        if not swap_flag:
+            return a
+    return a
+start:float=time.time()
+print(flag_bubble_sort())
+print(time.time()-start)
+
