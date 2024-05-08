@@ -1,22 +1,21 @@
-# Andrea Fiorilli
-# 17/04/2024
+def ransom(note: str, magazine: str) -> bool:
+    conta=0
+    a=""
+    b=""
+    for i in magazine:
+        if i in note:
+            a=a+i
+        for j in a:
+            if j in note:
+                conta=conta+1
+    if len(note)==conta:
+        return True
+    else:
+        return False
 
-print("Hello World!")
-
-# 2-3. Personal Message: Use a variable to represent a person’s name, 
-# and print a message to that person.
-# Your message should be simple, such as, 
-# “Hello Eric, would you like to learn some Python today?”
-
-name: str =("Luca")
-message: str=f"Hello {name}, would you like to learn some python today?"
-print(message)
-
-# 2-4. Name Cases: Use a variable to represent a person’s name, 
-# and then print that person’s name in lowercase, uppercase, 
-#and title case.
-
-name: str =("Luca")
-print (name.lower())
-print (name.upper())
-print (name.title())
+print(ransom("a","b"))
+print(ransom("aa", "ab"))
+print(ransom("aa","aab"))
+print(ransom("tu sei un figo", "bella per te stai zitto. figo di qua e di là"))
+print(ransom("","ciao"))
+print(ransom("tu sei un figo", "bella per te! ne vuoi stare zitto? figo di qua e di là... senza offesa"))
