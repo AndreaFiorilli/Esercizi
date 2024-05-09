@@ -48,9 +48,43 @@ class Person:
         """
         Check the ssn's correctness
         """
-        first_three_name_char=self._name[:3]
-        last_three_surname_char=self._surname[-3:]
-        self._ssn= first_three_name_char+last_three_surname_char
+        vocali="a e i o u A E I O U"
+        for x in range(len(vocali)):
+            self._name = self._name.replace(vocali[x], "")
+            self._surname = self._surname.replace(vocali[x], "")
+        month=self._birth_date[3:5]
+        if month=="01":
+            month="A"
+        elif month=="02":
+            month="B"
+        elif month=="03":
+            month="C"
+        elif month=="04":
+            month="D"
+        elif month=="05":
+            month="E"
+        elif month=="06":
+            month="H"
+        elif month=="07":
+            month="L"
+        elif month=="08":
+            month="M"
+        elif month=="09":
+            month="P"
+        elif month=="10":
+            month="R"
+        elif month=="11":
+            month="S"
+        elif month=="12":
+            month="T"
+
+            
+    
+        year=self._birth_date[-2:]
+        first_three_name_char=self._name[-3:]
+        last_three_surname_char=self._surname[:3]
+        self._ssn= last_three_surname_char.upper()+first_three_name_char.upper()+year+month
+
 
     def __str__(self)->str:
         return f"name: {self._name} surname: {self._surname} ssn: {self._ssn}"
