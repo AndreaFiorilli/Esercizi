@@ -48,3 +48,30 @@ cinema.aggiungi_sala(sala3)
 
 cinema.prenota_film("Titolo1",50)
 cinema.prenota_film("Titolo1",51)
+
+#GESTIONE MAGAZZINO
+
+class Prodotto:
+    def __init__(self,nome:str,quantita:int):
+        self.nome=nome
+        self.quantita=quantita
+
+class Magazzino:
+    def __init__(self,prodotti:list=[]):
+        self.prodotti=[]
+    
+    def aggiungi_prodotto(self,prodotto:Prodotto):
+        self.prodotti.append(prodotto)
+
+    def cerca_prodotto(self,nome:str):
+        for i in self.prodotti:
+            if nome == i.nome:
+                return nome
+    
+    def verifica_disponibilita(self,nome:str):
+        for i in self.prodotti:
+            if i.quantita>0:
+                print("Prodotto disponibile")
+
+prodotto1:Prodotto=Prodotto("Prodotto1",2)
+prodotto2:Prodotto=Prodotto("Prodotto2",2)
