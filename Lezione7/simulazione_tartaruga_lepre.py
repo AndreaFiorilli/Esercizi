@@ -75,7 +75,9 @@ posLepre=1
 posTart=1
 conta=0
 energiaTart=100
-energiaLepre=100    
+energiaLepre=100
+ostacoli:dict={15:3,30:5,45:7,60:9}
+bonus:dict={10:2,20:4,40:6,60:8}    
 while posTart != 70 and posLepre != 70:
     i=random.randint(1, 10)
     j=random.randint(1, 10)
@@ -93,6 +95,14 @@ while posTart != 70 and posLepre != 70:
         if energiaTart>5:
             posTart=posTart+3
             energiaTart=energiaTart-5
+            for n in ostacoli:
+                if posTart == n:
+                    posTart -= ostacoli[n]
+                    print(f"Tartaruga ostacolo trovato{posTart}")
+            for m in bonus:
+                if posTart == m:
+                    posTart += bonus[m]
+                    print(f"Tartaruga bonus trovato{posTart}")
             if energiaTart<=0:
                 energiaTart=0
             if posTart>70:
@@ -110,6 +120,14 @@ while posTart != 70 and posLepre != 70:
         if energiaTart>10:
             posTart=posTart-6
             energiaTart=energiaTart-10
+            for n in ostacoli:
+                if posTart == n:
+                    posTart -= ostacoli[n]
+                    print(f"Tartaruga ostacolo trovato {posTart}")
+            for m in bonus:
+                if posTart == m:
+                    posTart += bonus[m]
+                    print(f"Tartaruga bonus trovato{posTart}")
             if energiaTart<=0:
                 energiaTart=0
             if posTart<1:
@@ -127,6 +145,14 @@ while posTart != 70 and posLepre != 70:
         if energiaTart>3:
             posTart=posTart+1
             energiaTart=energiaTart-3
+            for n in ostacoli:
+                if posTart == n:
+                    posTart -= ostacoli[n]
+                    print(f"Tartaruga ostacolo trovato{posTart}")
+            for m in bonus:
+                if posTart == m:
+                    posTart += bonus[m]
+                    print(f"Tartaruga bonus trovato{posTart}")
             if energiaTart<=0:
                 energiaTart=0
             if posTart>70:
@@ -154,6 +180,14 @@ while posTart != 70 and posLepre != 70:
     elif Lepre(j)== "Grande balzo":
         posLepre=posLepre+9
         energiaLepre=energiaLepre-15
+        for n in ostacoli:
+            if posLepre == n:
+                posLepre -= ostacoli[n]
+                print(f"Lepre ostacolo trovato{posLepre}")
+        for m in bonus:
+            if posLepre == m:
+                posLepre += bonus[m]
+                print(f"Lepre bonus trovato{posLepre}")
         if energiaLepre<=0:
             energiaLepre=0
         if posLepre>70:
@@ -166,6 +200,14 @@ while posTart != 70 and posLepre != 70:
     elif Lepre(j)== "Grande scivolata":
         posLepre=posLepre-12
         energiaLepre=energiaLepre-20
+        for n in ostacoli:
+                if posLepre == n:
+                    posLepre -= ostacoli[n]
+                    print(f"Lepre ostacolo trovato{posLepre}")
+        for m in bonus:
+            if posLepre == m:
+                posLepre += bonus[m]
+                print(f"Lepre bonus trovato{posLepre}")
         if energiaLepre<=0:
             energiaLepre=0
         if posLepre<1:
@@ -178,6 +220,14 @@ while posTart != 70 and posLepre != 70:
     elif Lepre(j)== "Piccolo balzo":
         posLepre=posLepre+1
         energiaLepre=energiaLepre-5
+        for n in ostacoli:
+                if posLepre == n:
+                    posLepre -= ostacoli[n]
+                    print(f"Lepre ostacolo trovato{posLepre}")
+        for m in bonus:
+            if posLepre == m:
+                posLepre += bonus[m]
+                print(f"Lepre bonus trovato{posLepre}")
         if energiaLepre<=0:
             energiaLepre=0
         if posLepre>70:
@@ -190,6 +240,14 @@ while posTart != 70 and posLepre != 70:
     elif Lepre(j)== "Piccola scivolata":
         posLepre=posLepre-2
         energiaLepre=energiaLepre-8
+        for n in ostacoli:
+                if posLepre == n:
+                    posLepre -= ostacoli[n]
+                    print(f"Lepre ostacolo trovato{posLepre}")
+        for m in bonus:
+            if posLepre == m:
+                posLepre += bonus[m]
+                print(f"Lepre bonus trovato{posLepre}")
         if energiaLepre<=0:
             energiaLepre=0
         if posLepre<1:
