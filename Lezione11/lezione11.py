@@ -72,6 +72,12 @@ class Magazzino:
         for i in self.prodotti:
             if i.quantita>0:
                 print("Prodotto disponibile")
+            else:
+                print("Prodotto non disponibile")
 
-prodotto1:Prodotto=Prodotto("Prodotto1",2)
+prodotto1:Prodotto=Prodotto("Prodotto1",0)
 prodotto2:Prodotto=Prodotto("Prodotto2",2)
+magazzino:Magazzino=Magazzino()
+magazzino.aggiungi_prodotto(prodotto1)
+print(magazzino.cerca_prodotto("Prodotto1"))
+magazzino.verifica_disponibilita("Prodotto1")
