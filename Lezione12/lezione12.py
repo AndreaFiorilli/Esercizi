@@ -65,14 +65,43 @@ class MovieCatalog:
             if not director_name in self.catalog:
                 self.catalog[director_name]=movies
             else:
-                movies.append(movies)
-                self.catalog[director_name]=movies
-            print(self.catalog)
+                self.catalog[director_name].append(movies)
 
+    def remove_movie(self,director_name,movie_name):
+        if director_name in self.catalog:
+            if movie_name in self.catalog[director_name]:
+                self.catalog[director_name].remove(movie_name)
 
+    def list_directors(self):
+        for i in self.catalog:
+            print(i)
 
+    def get_movies_by_director(self,director_name): 
+        for i in self.catalog:
+            if i == director_name:
+                return self.catalog[director_name]
+            
+    def search_movies_by_title(self,title):
+        result = {}
+        for director, movies in self.catalog.items():
+            matching_movies = [movie for movie in movies if title.lower()]
+            if matching_movies:
+                result[director] = matching_movies
+
+        if result:
+            return result
+        else:
+            return f"Nessun film trovato con la parola '{title}' nel titolo."
 
 moviecatlog=MovieCatalog()
 moviecatlog.add_movie("Regista3",["Gran Film"])
 moviecatlog.add_movie("Regista2",["Bel Film"])
 moviecatlog.add_movie("Regista3",["Grande Film"])
+moviecatlog.add_movie("Regista3",["Ottimo Film"])
+moviecatlog.add_movie("Regista2",["Fantastico Film"])
+print(moviecatlog.catalog)
+moviecatlog.remove_movie("Regista3",["Grande Film"])
+print(moviecatlog.catalog)
+moviecatlog.list_directors()
+print(moviecatlog.get_movies_by_director("Regista3"))
+moviecatlog.search_movies_by_title("Bel")
