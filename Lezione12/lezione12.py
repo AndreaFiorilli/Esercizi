@@ -82,16 +82,16 @@ class MovieCatalog:
                 return self.catalog[director_name]
             
     def search_movies_by_title(self,title):
-        result = {}
-        for director, movies in self.catalog.items():
-            matching_movies = [movie for movie in movies if title.lower()]
-            if matching_movies:
-                result[director] = matching_movies
-
-        if result:
-            return result
-        else:
-            return f"Nessun film trovato con la parola '{title}' nel titolo."
+        delim=" "
+        b=False
+        for director in self.catalog:
+            for movie in self.catalog[director]:
+                a=delim.join(movie)
+                if title in a:
+                    print(director,movie)
+                    b=True                
+        if b != True:      
+            print(f"Nessun titolo contiene la parola: {title}")
 
 moviecatlog=MovieCatalog()
 moviecatlog.add_movie("Regista3",["Gran Film"])
@@ -104,4 +104,4 @@ moviecatlog.remove_movie("Regista3",["Grande Film"])
 print(moviecatlog.catalog)
 moviecatlog.list_directors()
 print(moviecatlog.get_movies_by_director("Regista3"))
-moviecatlog.search_movies_by_title("Bel")
+moviecatlog.search_movies_by_title("Ottimo")
