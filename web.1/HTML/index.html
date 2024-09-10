@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+          float: left;
+          width: 30%;
+          height: 800px; /* only for demonstration, should be removed */
+          background: #00FFFF;
+          padding: 20px;
+        }
+        
+        /* Style the list inside the menu */
+        nav ul {
+          list-style-type: none;
+          padding: 0;
+        }
+        
+        article {
+          float: left;
+          padding: 20px;
+          width: 70%;
+          background-color: #f1f1f1;
+          height: 800px; /* only for demonstration, should be removed */
+        }
+        
+        /* Clear floats after the columns */
+        section::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+          nav, article {
+            width: 100%;
+            height: auto;
+          }
+        }
+        </style>
+        </head>
+            <center>
+            <h1><b>Corriculum Vitae</b></h1>
+            </center>
+        <body>
+        
+        <section>
+          <nav>
+            <ul>
+                <h1>Andrea Fiorilli</h1>
+                <img src="a.jpg" width="400" height="400"> 
+                <h1>Dati personali</h1>
+                <p>03/05/2004</p>
+            </ul>
+          </nav>
+          
+          <article>
+            <h1>Esperienze Lavoritave</h1>
+            <p>Testo.</p>
+            <p>Testo.</p>
+          </article>
+        </section>
+        </body>
+        </html>
